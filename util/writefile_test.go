@@ -2,7 +2,7 @@ package util
 
 import "testing"
 
-func TestFirstLinearWriteFile(t *testing.T) {
+func TestWriteFile(t *testing.T) {
 	fl := &FirstLinear{
 		Filename: "../files/firstlinear_sample.out",
 	}
