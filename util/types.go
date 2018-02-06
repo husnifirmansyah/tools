@@ -12,3 +12,13 @@ type FirstLinear struct {
 	Engine    map[int][]string
 	Query     map[int][]string
 }
+
+type SecondLinear struct {
+	Filename       string
+	Testnum        int
+	AllQueryNum    []int
+	FirstQueryNum  []int
+	SecondQueryNum []int
+	FirstQuery     map[int][]string
+	SecondQuery    map[int][]string
+}

@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-func TestReadFile(t *testing.T) {
+func TestFirstLinearReadFile(t *testing.T) {
 	fl := &FirstLinear{
-		Filename: "sample.in",
+		Filename: "../files/firstlinear_sample.in",
 	}
 	fl.ReadFile()
 	if fl.Testnum != 2 {
@@ -32,5 +32,16 @@ func TestReadFile(t *testing.T) {
 	}
 	if !reflect.DeepEqual(fl.Query, query) {
 		t.Errorf("got: %v, want: %v\n", fl.Query, query)
+	}
+}
+
+func TestSecondLinearReadFile(t *testing.T) {
+	sl := &SecondLinear{
+		Filename: "../files/secondlinear_sample.in",
+	}
+
+	sl.ReadFile()
+	if sl.Testnum != 2 {
+		t.Errorf("got: %v, want: 2\n", sl.Testnum)
 	}
 }

@@ -2,9 +2,9 @@ package util
 
 import "testing"
 
-func TestWriteFile(t *testing.T) {
+func TestFirstLinearWriteFile(t *testing.T) {
 	fl := &FirstLinear{
-		Filename: "sample.out",
+		Filename: "../files/firstlinear_sample.out",
 	}
 	numchar, err := fl.WriteFile("coba cek husni\n")
 	if numchar != 15 {
