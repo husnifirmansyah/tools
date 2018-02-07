@@ -16,9 +16,13 @@ type FirstLinear struct {
 type SecondLinear struct {
 	Filename       string
 	Testnum        int
-	AllQueryNum    []int
+	Key            []int
 	FirstQueryNum  []int
 	SecondQueryNum []int
 	FirstQuery     map[int][]string
 	SecondQuery    map[int][]string
+}
+
+type ForAll struct {
+	Filename string
 }

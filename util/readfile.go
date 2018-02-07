@@ -51,8 +51,8 @@ func (sl *SecondLinear) ReadFile() {
 	sl.SecondQuery = make(map[int][]string, sl.Testnum)
 	for i := 0; i < sl.Testnum; i++ {
 		scanner.Scan()
-		allQueryNum, _ := strconv.Atoi(scanner.Text())
-		sl.AllQueryNum = append(sl.AllQueryNum, allQueryNum)
+		key, _ := strconv.Atoi(scanner.Text())
+		sl.Key = append(sl.Key, key)
 
 		scanner.Scan()
 		arrQuery := strings.Split(scanner.Text(), " ")

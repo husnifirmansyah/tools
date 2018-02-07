@@ -5,8 +5,8 @@ import (
 	"os"
 )
 
-func (fl *FirstLinear) WriteFile(contents string) (numchar int, err error) {
-	f, _ := os.Create(fl.Filename)
+func (fa *ForAll) WriteFile(contents string) (numchar int, err error) {
+	f, _ := os.Create(fa.Filename)
 	w := bufio.NewWriter(f)
 	numchar, err = w.WriteString(contents)
 	w.Flush()
