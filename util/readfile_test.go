@@ -45,3 +45,42 @@ func TestSecondLinearReadFile(t *testing.T) {
 		t.Errorf("got: %v, want: 2\n", sl.Testnum)
 	}
 }
+
+func TestThirdLinearReadFile(t *testing.T) {
+	tl := &ThirdLinear{
+		Filename: "../files/thirdlinear_sample.in",
+	}
+	tl.ReadFile()
+	if tl.Testnum != 5 {
+		t.Errorf("got: %v, want: 5\n", tl.Testnum)
+	}
+	query := []string{"0.25 1.0 0.1 0.01 0.5", "0.25 1.0 0.1 0.01 0.9", "0.00001 10000 0.00001 0.00001 1000", "0.4 10000 0.00001 0.00001 700", "1 100 1 1 10"}
+	if !reflect.DeepEqual(tl.Query, query) {
+		t.Errorf("got query: %v, want query: %v\n", tl.Query, query)
+	}
+}
+
+func TestForthLinearReadFile(t *testing.T) {
+	fo := &ForthLinear{
+		Filename: "../files/forthlinear_sample.in",
+	}
+	fo.ReadFile()
+	if fo.Testnum != 2 {
+		t.Errorf("got: %v, want: 2\n", fo.Testnum)
+	}
+
+	vectornum := []int{3, 5}
+	if !reflect.DeepEqual(fo.VectorNum, vectornum) {
+		t.Errorf("got vector num: %v, want vector num: %v\n", fo.VectorNum, vectornum)
+	}
+
+	firstVector := []string{"1 3 -5", "1 2 3 4 5"}
+	if !reflect.DeepEqual(fo.FirstVector, firstVector) {
+		t.Errorf("got first vector: %v, want first vector: %v\n", fo.FirstVector, firstVector)
+	}
+
+	secondVector := []string{"-2 4 1", "1 0 1 0 1"}
+	if !reflect.DeepEqual(fo.SecondVector, secondVector) {
+		t.Errorf("got second vector: %v, want second vector: %v\n", fo.SecondVector, secondVector)
+	}
+}

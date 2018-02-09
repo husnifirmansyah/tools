@@ -75,3 +75,35 @@ func (sl *SecondLinear) ReadFile() {
 		sl.SecondQuery[i] = bufSecondQuery
 	}
 }
+
+func (tl *ThirdLinear) ReadFile() {
+	f, _ := os.Open(tl.Filename)
+	// Create a new Scanner for the file.
+	scanner := bufio.NewScanner(f)
+	scanner.Scan()
+	tl.Testnum, _ = strconv.Atoi(scanner.Text())
+	for i := 0; i < tl.Testnum; i++ {
+		scanner.Scan()
+		tl.Query = append(tl.Query, scanner.Text())
+	}
+}
+
+func (fo *ForthLinear) ReadFile() {
+	f, _ := os.Open(fo.Filename)
+	// Create a new Scanner for the file.
+	scanner := bufio.NewScanner(f)
+
+	scanner.Scan()
+	fo.Testnum, _ = strconv.Atoi(scanner.Text())
+	for i := 0; i < fo.Testnum; i++ {
+		scanner.Scan()
+		bufVectorNum, _ := strconv.Atoi(scanner.Text())
+		fo.VectorNum = append(fo.VectorNum, bufVectorNum)
+
+		scanner.Scan()
+		fo.FirstVector = append(fo.FirstVector, scanner.Text())
+
+		scanner.Scan()
+		fo.SecondVector = append(fo.SecondVector, scanner.Text())
+	}
+}

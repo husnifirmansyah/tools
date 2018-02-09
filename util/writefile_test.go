@@ -4,7 +4,7 @@ import "testing"
 
 func TestWriteFile(t *testing.T) {
 	fa := &ForAll{
-		Filename: "../files/firstlinear_sample.out",
+		Filename: "../files/sample.out",
 	}
 	numchar, err := fa.WriteFile("coba cek husni\n")
 	if numchar != 15 {
