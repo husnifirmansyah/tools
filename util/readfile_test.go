@@ -84,3 +84,27 @@ func TestForthLinearReadFile(t *testing.T) {
 		t.Errorf("got second vector: %v, want second vector: %v\n", fo.SecondVector, secondVector)
 	}
 }
+
+func TestFifthLinearReadFile(t *testing.T) {
+	ff := &FifthLinear{
+		Filename: "../files/fifthlinear_sample.in",
+	}
+	ff.ReadFile()
+	if ff.Testnum != 2 {
+		t.Errorf("got: %v, want: 2\n", ff.Testnum)
+	}
+	if !reflect.DeepEqual(ff.FirstQueryNum, []int{5, 1}) {
+		t.Errorf("got: %v, want: %v\n", ff.FirstQueryNum, []int{5, 1})
+	}
+	if !reflect.DeepEqual(ff.SecondQueryNum, []int{3, 2}) {
+		t.Errorf("got: %v, want: %v\n", ff.SecondQueryNum, []int{3, 2})
+	}
+
+	query := map[int][]string{
+		0: []string{"1 1 1", "2 1 0 2 0", "1 5 0"},
+		1: []string{"1 1 0", "1 1 1"},
+	}
+	if !reflect.DeepEqual(ff.SecondQuery, query) {
+		t.Errorf("got: %v, want: %v\n", ff.SecondQuery, query)
+	}
+}

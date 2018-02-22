@@ -37,6 +37,14 @@ type ForthLinear struct {
 	SecondVector []string
 }
 
+type FifthLinear struct {
+	Filename       string
+	Testnum        int
+	FirstQueryNum  []int
+	SecondQueryNum []int
+	SecondQuery    map[int][]string
+}
+
 type ForAll struct {
 	Filename string
 }

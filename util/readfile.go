@@ -107,3 +107,28 @@ func (fo *ForthLinear) ReadFile() {
 		fo.SecondVector = append(fo.SecondVector, scanner.Text())
 	}
 }
+
+func (ff *FifthLinear) ReadFile() {
+	f, _ := os.Open(ff.Filename)
+	// Create a new Scanner for the file.
+	scanner := bufio.NewScanner(f)
+	scanner.Scan()
+	ff.Testnum, _ = strconv.Atoi(scanner.Text())
+	ff.SecondQuery = make(map[int][]string, ff.Testnum)
+	for i := 0; i < ff.Testnum; i++ {
+		scanner.Scan()
+		bufFirstQueryNum, _ := strconv.Atoi(scanner.Text())
+		ff.FirstQueryNum = append(ff.FirstQueryNum, bufFirstQueryNum)
+
+		scanner.Scan()
+		bufSecondQueryNum, _ := strconv.Atoi(scanner.Text())
+		ff.SecondQueryNum = append(ff.SecondQueryNum, bufSecondQueryNum)
+
+		var bufSecondQuery []string
+		for x := 0; x < bufSecondQueryNum; x++ {
+			scanner.Scan()
+			bufSecondQuery = append(bufSecondQuery, scanner.Text())
+		}
+		ff.SecondQuery[i] = bufSecondQuery
+	}
+}
